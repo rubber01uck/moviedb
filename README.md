@@ -9,3 +9,15 @@
 # round(평점평균,1) => 반올림하라, 소수점 1자리까지 보이게
 select m.m_no, m_name, round(ifnull(avg(re_star),0),1), m_startday, l_no from movie m left join review r on m.m_no=r.m_no group by m.m_no;
 ```
+
+▼ 영화 정보, 영화 설명
+```
+JScrollPane jsp=new JScrollPane();
+JTextArea tf1=new JTextArea();
+```
+```
+// 원래 textarea는 textfield처럼 텍스트를 입력하는 것이기 때문에 수정이 불가하도록 setEditable(false) 사용
+tf1.setEditable(false);
+tf1.setText(bean.getA());
+jsp.setViewportView(tf1);
+```
