@@ -10,6 +10,7 @@
 select m.m_no, m_name, round(ifnull(avg(re_star),0),1), m_startday, l_no from movie m left join review r on m.m_no=r.m_no group by m.m_no;
 ```
 
+
 ▼ 영화 정보, 영화 설명
 ```
 JScrollPane jsp=new JScrollPane();
@@ -20,4 +21,10 @@ JTextArea tf1=new JTextArea();
 tf1.setEditable(false);
 tf1.setText(bean.getA());
 jsp.setViewportView(tf1);
+```
+
+
+▼ 메인, 예약 건수 많은 순 10개, 예약 건수 같은 경우에는 영화번호순으로 정렬
+```
+select m.m_no, m_name from movie m left join reservation r on m.m_no=r.m_no group by m.m_no order by count(*) desc, m.m_no limit 10;
 ```
